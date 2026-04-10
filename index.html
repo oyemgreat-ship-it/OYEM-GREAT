@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OYEM GREAT | Official Site</title>
+    
+    <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --gold: #c5a059;
@@ -14,12 +19,7 @@
             --border: rgba(197, 160, 89, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             background-color: var(--dark);
@@ -28,13 +28,8 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .nav-logo {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            letter-spacing: 3px;
-        }
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--gold); letter-spacing: 3px; }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -45,159 +40,46 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            position: relative;
         }
 
-        .hero-content h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 10px;
-            animation: fadeInDown 1.5s ease;
-        }
+        .hero-content h1 { font-size: clamp(3rem, 8vw, 6rem); animation: fadeInDown 1.5s ease; }
+        .hero-content p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; color: var(--gold-bright); animation: fadeInUp 2s ease; }
 
-        .hero-content p {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: var(--gold-bright);
-            animation: fadeInUp 2s ease;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
 
-        /* Sections */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 20px;
-        }
+        .grid-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 150px; }
 
-        .grid-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 150px;
-        }
+        .text-box h2 { font-size: 2.5rem; margin-bottom: 20px; position: relative; }
+        .text-box h2::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 50px; height: 2px; background: var(--gold); }
 
-        .text-box {
-            padding: 20px;
-        }
+        .image-container { position: relative; overflow: hidden; border-radius: 5px; border: 1px solid var(--border); background: var(--glass); }
+        .image-container img { width: 100%; transition: transform 0.8s ease; display: block; }
+        .image-container:hover img { transform: scale(1.05); }
 
-        .text-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
+        .vision-container { background: var(--glass); border: 1px solid var(--border); padding: 60px; border-radius: 20px; backdrop-filter: blur(10px); margin-bottom: 100px; }
+        .vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
+        .vision-card { padding: 30px; background: rgba(255,255,255,0.02); border-left: 2px solid var(--gold); transition: 0.3s; }
+        .vision-card:hover { background: rgba(197, 160, 89, 0.05); transform: translateY(-5px); }
 
-        .text-box h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-        }
+        /* Social Section Styling */
+        .social-links { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+        .social-icon { color: var(--gold); font-size: 2.5rem; text-decoration: none; transition: 0.4s ease; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .social-icon span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #888; }
+        .social-icon:hover { color: var(--gold-bright); transform: translateY(-10px); }
 
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-            border: 1px solid var(--border);
-        }
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .gallery-item { aspect-ratio: 1/1; object-fit: cover; width: 100%; border: 1px solid var(--border); }
 
-        .image-container img {
-            width: 100%;
-            transition: transform 0.8s ease;
-        }
+        footer { padding: 80px 20px; text-align: center; background: #000; border-top: 1px solid var(--border); }
+        .philosophies { font-style: italic; color: var(--gold-bright); max-width: 600px; margin: 0 auto 40px; }
 
-        .image-container:hover img {
-            transform: scale(1.05);
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Glass Cards */
-        .vision-container {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 60px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            margin-bottom: 100px;
-        }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .vision-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .vision-card {
-            padding: 30px;
-            background: rgba(255,255,255,0.02);
-            border-left: 2px solid var(--gold);
-            transition: 0.3s;
-        }
-
-        .vision-card:hover {
-            background: rgba(197, 160, 89, 0.05);
-            transform: translateY(-5px);
-        }
-
-        /* Gallery Grid */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            width: 100%;
-            border: 1px solid var(--border);
-        }
-
-        /* Footer */
-        footer {
-            padding: 80px 20px;
-            text-align: center;
-            background: #000;
-            border-top: 1px solid var(--border);
-        }
-
-        .philosophies {
-            font-style: italic;
-            color: var(--gold-bright);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 850px) {
-            .grid-section { grid-template-columns: 1fr; }
-            .grid-section.reverse { direction: rtl; }
-            .grid-section.reverse .text-box { direction: ltr; }
-        }
+        @media (max-width: 850px) { .grid-section { grid-template-columns: 1fr; } .grid-section.reverse { direction: rtl; } .grid-section.reverse .text-box { direction: ltr; } }
     </style>
 </head>
 <body>
@@ -215,7 +97,7 @@
         <div class="grid-section scroll-reveal">
             <div class="text-box">
                 <h2>The Origin</h2>
-                <p>Born on the 5th of June, my story began in Nigeria with a mindset geared toward the extraordinary. I’ve always believed that life isn’t about just existing—it’s about the legacy you carve into the world.</p>
+                <p>Originally from Nigeria, my story is built on a mindset geared toward the extraordinary. I’ve always believed that life isn’t about just existing—it’s about the legacy you carve into the world.</p>
                 <br>
                 <p>With a foundation built on discipline and curiosity, I am walking a path designed to influence, inspire, and innovate.</p>
             </div>
@@ -229,7 +111,7 @@
                 <h2>Executive Excellence</h2>
                 <p>In the high-stakes world of luxury real estate, I serve as the <span style="color:var(--gold)">Executive Operations Associate at KX Luxury Homes and Properties</span>.</p>
                 <br>
-                <p>Managing listings, coordinating staff, and overseeing operations has given me a front-row seat to the mechanics of wealth and business strategy. This isn't just a job; it's the training ground for a future tycoon.</p>
+                <p>Managing listings, coordinating staff, and overseeing operations has given me a front-row seat to the mechanics of wealth and business strategy.</p>
             </div>
             <div class="image-container">
                 <img src="kx.jpg" alt="Business Operations">
@@ -245,7 +127,7 @@
                 </div>
                 <div class="vision-card">
                     <h3>Political Reform</h3>
-                    <p>Entering the political arena to drive systemic change and help shape the future of governance in my country.</p>
+                    <p>Entering the political arena to drive systemic change and help shape the future of governance.</p>
                 </div>
                 <div class="vision-card">
                     <h3>Knowledge Mastery</h3>
@@ -262,7 +144,29 @@
                 <h2>Brotherhood: Onome</h2>
                 <p>They say you are the average of the people you keep closest. My best friend Joshua, whom I call <b>Onome</b>, is a testament to that.</p>
                 <br>
-                <p>Our names share the same meaning across different languages—a symbolic connection that mirrors our shared drive for greatness and loyalty.</p>
+                <p>Our names share the same meaning across different languages—a symbolic connection that mirrors our shared drive for greatness.</p>
+            </div>
+        </div>
+
+        <div class="vision-container scroll-reveal">
+            <center><h2>Connect Globally</h2></center>
+            <div class="social-links">
+                <a href="https://instagram.com/great.oyem" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://x.com/Oyem_Great_OG" class="social-icon" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="https://tiktok.com/@shelovesgregory" class="social-icon" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://facebook.com/Great Oyem" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
             </div>
         </div>
 
@@ -284,19 +188,12 @@
     </footer>
 
     <script>
-        // Smooth Scroll Reveal Script
-        const observerOptions = {
-            threshold: 0.1
-        };
-
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
             });
         }, observerOptions);
-
         document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
     </script>
 </body>
